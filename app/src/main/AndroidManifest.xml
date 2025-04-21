@@ -13,7 +13,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-feature android:name="android.hardware.wifi.direct" android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.wifi.direct"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -25,14 +28,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PeerChat"
         tools:targetApi="31">
-        <activity android:name=".MainActivity" android:exported="true">
+        <activity
+            android:name=".MessageActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ChatLogActivity"/>
+
     </application>
-
-
 
 </manifest>
