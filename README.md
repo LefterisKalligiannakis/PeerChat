@@ -17,7 +17,7 @@
   - Initiates peer discovery and manages connections.
   - Provides access to chat logs.
 
-<img src="https://github.com/user-attachments/assets/dded2c7d-6dc3-4c0e-8680-ffd5cab95552" height=20% width=20%>
+<img src="https://github.com/user-attachments/assets/db07abfb-e920-4a87-8ed2-9a8ab6a08d09" height=20% width=20%>
 
 ##
 
@@ -25,21 +25,21 @@
 - Facilitates real-time message exchange between peers.
 - Updates location information.
 
-<img src="https://github.com/user-attachments/assets/0fda6f78-db86-446c-a0c1-c667d59bfb65" height=20% width=20%>
+<img src="https://github.com/user-attachments/assets/e894bc38-fadd-4f38-9c7a-3417424332e9" height=20% width=20%>
 
 ##
  
 **ChatLogActivity.java**
 - Displays previously stored messages from past conversations.
 
-<img src="https://github.com/user-attachments/assets/2bb07b4e-4b18-412a-9ccb-3febc38313c5" height=20% width=20%>
+<img src="https://github.com/user-attachments/assets/3854743e-a72a-419c-b822-6aaf1a4848fb" height=20% width=20%>
 
 ##
 
 **MapsActivity.java**
 - Displays peer's location on Google Maps using the Maps API.
 
-<img src="https://github.com/user-attachments/assets/a19154e1-3a6d-47f4-bff0-c9cbb29a8330" height=20% width=20%>
+<img src="https://github.com/user-attachments/assets/6e351e3d-52b5-454e-adb4-3ceed8ed831e" height=20% width=20%>
 
 ##
 
