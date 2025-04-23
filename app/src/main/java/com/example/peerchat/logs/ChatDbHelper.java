@@ -1,4 +1,4 @@
-package com.example.peerchat;
+package com.example.peerchat.logs;
 
 import android.content.ContentValues;
 import android.content.Context;

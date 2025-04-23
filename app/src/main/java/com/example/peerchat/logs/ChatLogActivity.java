@@ -1,4 +1,4 @@
-package com.example.peerchat;
+package com.example.peerchat.logs;
 
 import android.os.Bundle;
 import android.widget.ImageButton;
@@ -6,6 +6,8 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.peerchat.R;
 
 import java.util.List;
 

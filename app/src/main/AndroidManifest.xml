@@ -29,7 +29,7 @@
         android:theme="@style/Theme.PeerChat"
         tools:targetApi="31">
         <activity
-            android:name=".MessageActivity"
+            android:name=".messenger.MessageActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
@@ -42,7 +42,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatLogActivity"/>
+        <activity android:name=".logs.ChatLogActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="API_KEY" />
+
+        <activity android:name=".maps.MapsActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 

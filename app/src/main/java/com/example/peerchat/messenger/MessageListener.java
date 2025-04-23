@@ -1,5 +1,5 @@
-package com.example.peerchat;
+package com.example.peerchat.messenger;
 
 public interface MessageListener {
-    void onMessageReceived(String message);
+    void onDataReceived(String message);
     void onConnectionStatusChanged(boolean connected); }

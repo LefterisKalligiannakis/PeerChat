@@ -1,4 +1,4 @@
-package com.example.peerchat;
+package com.example.peerchat.p2p;
 
 import android.Manifest;
 import android.content.Context;

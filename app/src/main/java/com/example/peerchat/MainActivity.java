@@ -12,6 +12,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.peerchat.logs.ChatLogActivity;
+import com.example.peerchat.messenger.MessageActivity;
+import com.example.peerchat.p2p.ConnectionManager;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         discoveredPeers = findViewById(R.id.discoveredPeers);
         connectionStatus = findViewById(R.id.connectionStatus);
+
         // initialize connection manager and callback
         connectionManager = ConnectionManager.getInstance(this, discoveredPeers);
         connectionManager.setConnectionCallback((isHost, hostAddress) -> {

@@ -1,4 +1,4 @@
-package com.example.peerchat;
+package com.example.peerchat.messenger;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -44,7 +44,7 @@ public class MessageClient extends Thread {
             while ((line = reader.readLine()) != null) {
                 final String msg = line;
                 Log.d("Chat", "Received from server: " + msg);
-                uiHandler.post(() -> listener.onMessageReceived(msg));
+                uiHandler.post(() -> listener.onDataReceived(msg));
             }
         } catch (IOException e) {
             Log.e("Chat", "Client error", e);

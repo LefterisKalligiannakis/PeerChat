@@ -1,4 +1,4 @@
-package com.example.peerchat;
+package com.example.peerchat.logs;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.peerchat.R;
 
 public class ChatLogAdapter extends RecyclerView.Adapter<ChatLogAdapter.ViewHolder> {
     private final List<ChatLogEntry> chatLogs;

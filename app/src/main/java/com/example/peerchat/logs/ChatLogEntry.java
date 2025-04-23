@@ -1,4 +1,4 @@
-package com.example.peerchat;
+package com.example.peerchat.logs;
 
 public class ChatLogEntry {
     private String message;
