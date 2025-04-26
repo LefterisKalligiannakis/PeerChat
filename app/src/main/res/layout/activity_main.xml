@@ -5,9 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#232323"
-    tools:context=".MainActivity"
-    >
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/connectionStatus"
@@ -15,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="#66BA30"
         android:text="Connection Status"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:textAlignment="center"
         android:padding="12dp"
@@ -27,9 +26,10 @@
         android:id="@+id/discoveredPeers"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        android:layout_marginTop="12dp"
-        android:background="#696969"
+        android:layout_marginTop="8dp"
+        android:background="#E0E0E0"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/connectionStatus" />
 
@@ -40,11 +40,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:backgroundTint="#464646"
+        android:backgroundTint="#90CAF9"
         android:elevation="4dp"
         android:text="Discover"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,11 +57,11 @@
         android:layout_marginTop="12dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:backgroundTint="#123456"
+        android:backgroundTint="#90CAF9"
         android:elevation="4dp"
         android:text="View Logs"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintTop_toBottomOf="@id/discoverButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

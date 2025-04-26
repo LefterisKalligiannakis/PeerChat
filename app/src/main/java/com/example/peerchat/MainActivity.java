@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        discoverButton.setBackgroundColor(Color.parseColor("#464646"));
+        discoverButton.setBackgroundColor(Color.parseColor("#90CAF9"));
         discoverButton.setEnabled(true);
         connectionManager.registerReceiver();
 
