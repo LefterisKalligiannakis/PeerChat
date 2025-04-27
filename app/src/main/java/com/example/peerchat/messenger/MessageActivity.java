@@ -26,6 +26,12 @@ import org.json.JSONObject;
 import java.net.InetAddress;
 import java.util.ArrayList;
 
+// notifications
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+
 public class MessageActivity extends AppCompatActivity implements MessageListener {
     private ListView listViewMessages;
     private MessageAdapter messageAdapter;
@@ -37,7 +43,7 @@ public class MessageActivity extends AppCompatActivity implements MessageListene
     private MessageClient messageClient;
     private boolean isHost;
     private ConnectionManager connectionManager;
-
+    private boolean isInForeground;
     private ChatDbHelper dbHelper;
 
     FusedLocationProviderClient fusedLocationClient;
@@ -51,6 +57,9 @@ public class MessageActivity extends AppCompatActivity implements MessageListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+        createNotificationChannel();
+
+        isInForeground = true;
 
         connectionStatus = findViewById(R.id.connectionStatus);
         listViewMessages = findViewById(R.id.listViewMessages);
@@ -154,6 +163,10 @@ public class MessageActivity extends AppCompatActivity implements MessageListene
             messageAdapter.add("Peer: " + message);
             dbHelper.insertMessage(System.currentTimeMillis(), message, false);
             scrollToBottom();
+
+            if (!isInForeground) {
+                showNotification("New Message", message);
+            }
         });
     }
 
@@ -201,6 +214,10 @@ public class MessageActivity extends AppCompatActivity implements MessageListene
             isConnecting = true; // Start connecting
             connectionStatus.setText("Connecting...");
 
+            if (!isInForeground) {
+                showNotification("Peer Disconnected", "Trying to reconnect...");
+            }
+
             new Thread(() -> {
                 try {
                     Thread.sleep(5000);
@@ -218,11 +235,49 @@ public class MessageActivity extends AppCompatActivity implements MessageListene
         }
     }
 
+    private void createNotificationChannel() {
+        CharSequence name = "Messages";
+        String description = "Channel for message notifications";
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+        NotificationChannel channel = new NotificationChannel("MESSAGE_CHANNEL", name, importance);
+        channel.setDescription(description);
+
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        notificationManager.createNotificationChannel(channel);
+    }
+
+    @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
+    private void showNotification(String title, String content) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "MESSAGE_CHANNEL")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle(title)
+                .setContentText(content)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager.notify((int) System.currentTimeMillis(), builder.build());
+    }
+
+
     private void scrollToBottom() {
         int count = messageAdapter.getCount();
         if (count > 0) {
             listViewMessages.setSelection(count - 1);
         }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isInForeground = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isInForeground = false;
     }
 
     @Override

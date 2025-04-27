@@ -23,12 +23,24 @@ public class MainActivity extends AppCompatActivity {
     private ListView discoveredPeers;
     private Button discoverButton;
     private TextView connectionStatus;
+
+    private static final int NOTIFICATION_PERMISSION_REQUEST_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         discoveredPeers = findViewById(R.id.discoveredPeers);
         connectionStatus = findViewById(R.id.connectionStatus);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted, request it
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                    NOTIFICATION_PERMISSION_REQUEST_CODE);
+        }
+
 
         // initialize connection manager and callback
         connectionManager = ConnectionManager.getInstance(this, discoveredPeers);
@@ -46,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 connectionManager.discoverPeers();
                 connectionStatus.setText("Discovering peers...");
                 discoverButton.setEnabled(false);
-                discoverButton.setBackgroundColor(Color.parseColor("#FF6200EE")); // darker shade
+                discoverButton.setBackgroundColor(Color.parseColor("#5487b0")); // darker shade
             }
         });
 
